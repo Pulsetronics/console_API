@@ -10,11 +10,12 @@
 #include "usart.h"
 #include "gpio.h"
 
+#include "console_driver.h"
+
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 
-uint8_t* string = "Hello World\r\n";
 /**
   * @brief  The application entry point.
   * @retval int
@@ -32,14 +33,14 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART2_UART_Init();
+  console.baudrate = 115200;
+  console.init(console.baudrate);
+  
 
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+  while (1) {
+     console.write(console.port2, "Welcome to Software Architecture");
+     console.newLine(console.port2);
      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-     HAL_UART_Transmit(&huart2, string, strlen((char*) string), 100);
      HAL_Delay(1000);
   }
   /* USER CODE END 3 */
