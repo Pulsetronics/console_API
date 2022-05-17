@@ -38,7 +38,7 @@ int main(void)
   
 
   while (1) {
-     console.write(console.port2, "MF Kundan Yadav");
+     console.write(console.port2, "Embedded Software Architecture");
      console.newLine(console.port2);
      HAL_Delay(500);
 
