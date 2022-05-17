@@ -38,10 +38,10 @@ int main(void)
   
 
   while (1) {
-     console.write(console.port2, "Welcome to Software Architecture");
+     console.write(console.port2, "MF Kundan Yadav");
      console.newLine(console.port2);
-     HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-     HAL_Delay(1000);
+     HAL_Delay(500);
+
   }
   /* USER CODE END 3 */
 }
